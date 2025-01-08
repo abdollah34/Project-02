@@ -25,7 +25,10 @@
     <nav>
         <div class="nav-content">
             <a href="./../index.html" class="logo">PixelForge <span>Agency</span></a>
-            <div class="nav-links">
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="/about us"><span>About</span></a>
                 <a href="/services" class="active"><span>Services</span></a>
                 <a href="/portfolio"><span>Work</span></a>
@@ -391,6 +394,31 @@
                     closeModal(openModal.id);
                 }
             }
+        });
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuButton.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-content')) {
+                navLinks.classList.remove('active');
+                menuButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuButton.classList.remove('active');
+            });
         });
     </script>
 </body>

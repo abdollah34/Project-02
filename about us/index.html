@@ -27,12 +27,15 @@
 
     <nav>
         <div class="nav-content">
-            <a href="#" class="logo">PixelForge <span>Agency</span></a>
-            <div class="nav-links">
-                <a href="/about us">About</a>
-                <a href="/services">Services</a>
-                <a href="/portfolio">Work</a>
-                <a href="/contact us">Contact</a>
+            <a href="./../index.html" class="logo">PixelForge <span>Agency</span></a>
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="active"><span>About</span></a>
+                <a href="./../services/services.html"><span>Services</span></a>
+                <a href="/portfolio"><span>Work</span></a>
+                <a href="/contact us"><span>Contact</span></a>
             </div>
         </div>
     </nav>
@@ -372,6 +375,31 @@
         if ('ontouchstart' in window) {
             document.querySelector('.mouse-cursor').style.display = 'none';
         }
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuButton.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-content')) {
+                navLinks.classList.remove('active');
+                menuButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuButton.classList.remove('active');
+            });
+        });
     </script>
 
 </html>
