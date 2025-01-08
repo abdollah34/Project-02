@@ -7,7 +7,7 @@
     <title>Contact Us - PixelForge Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <style>
 
     </style>
@@ -27,12 +27,15 @@
 
     <nav>
         <div class="nav-content">
-            <a href="#" class="logo">PixelForge <span>Agency</span></a>
-            <div class="nav-links">
+            <a href="./../index.html" class="logo">PixelForge <span>Agency</span></a>
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="/about us"><span>About</span></a>
-                <a href="/services" class="active"><span>Services</span></a>
+                <a href="./../services/services.html"><span>Services</span></a>
                 <a href="/portfolio"><span>Work</span></a>
-                <a href="/contact us"><span>Contact</span></a>
+                <a href="#" class="active"><span>Contact</span></a>
             </div>
         </div>
     </nav>
@@ -309,6 +312,31 @@
         if ('ontouchstart' in window) {
             document.querySelector('.mouse-cursor').style.display = 'none';
         }
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuButton.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-content')) {
+                navLinks.classList.remove('active');
+                menuButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuButton.classList.remove('active');
+            });
+        });
     </script>
 </body>
 
