@@ -1,7 +1,4 @@
-/* Move all existing styles from index.html here */
 
-
-/* Update/Add these specific styles */
 
 .logo {
     font-size: 28px;
@@ -820,5 +817,118 @@ nav.scrolled {
         background: rgba(100, 255, 218, 0.1);
         padding: 10px 20px;
         border-radius: 5px;
+    }
+    .nav-content {
+        padding: 0 15px;
+    }
+    .hero-content {
+        padding: 0 15px;
+    }
+    .glitch {
+        font-size: 40px;
+        /* Reduced from 80px */
+    }
+    .subtitle {
+        font-size: 18px;
+        /* Reduced from 24px */
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        /* Reduced padding */
+        font-size: 16px;
+        /* Reduced from 18px */
+    }
+    .section-title {
+        font-size: 28px;
+        /* Reduced from 2.5rem */
+        margin-bottom: 2rem;
+    }
+    .tech-item {
+        padding: 0.8rem 1.2rem;
+        font-size: 14px;
+        margin: 0 0.5rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+        /* Single column for mobile */
+        padding: 15px;
+        gap: 1.5rem;
+    }
+    .project-card {
+        height: 250px;
+        /* Reduced height */
+    }
+    .project-back {
+        padding: 1.5rem;
+    }
+    .project-back h3 {
+        font-size: 1.2rem;
+    }
+    .project-back p {
+        font-size: 14px;
+        margin-bottom: 1rem;
+    }
+    .footer-content {
+        padding: 0 15px;
+    }
+    .footer-section {
+        margin-bottom: 30px;
+    }
+    .social-link {
+        width: 35px;
+        /* Reduced from 40px */
+        height: 35px;
+    }
+    /* Adjust floating buttons for mobile */
+    .floating-buttons {
+        right: 15px;
+        bottom: 15px;
+        gap: 10px;
+    }
+    .floating-btn {
+        width: 45px;
+        /* Reduced from 60px */
+        height: 45px;
+        font-size: 18px;
+    }
+    /* Hide tooltips on mobile */
+    .tooltip {
+        display: none;
+    }
+    /* Adjust navigation for mobile */
+    .nav-links.active {
+        padding: 60px 20px;
+    }
+    .nav-links a {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+}
+
+
+/* Add styles for extra small devices */
+
+@media (max-width: 360px) {
+    .glitch {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 16px;
+    }
+    .logo {
+        font-size: 24px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+    .floating-buttons {
+        right: 10px;
+        bottom: 10px;
+    }
+    .floating-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
     }
 }
