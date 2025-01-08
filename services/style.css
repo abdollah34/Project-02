@@ -129,6 +129,49 @@
     }
 }
 
+
+/* Add after your existing nav-links styles */
+
+.nav-links a.active {
+    color: #64ffda;
+}
+
+.nav-links a.active::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #64ffda;
+    transform: scaleX(1);
+}
+
+.nav-links a.active span::before {
+    transform: scaleX(1);
+}
+
+
+/* Add a subtle glow effect */
+
+.nav-links a.active {
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+}
+
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    .nav-links a.active {
+        background: rgba(100, 255, 218, 0.1);
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+}
+
+
+/* Rest of the existing styles from index.html... */
+
 * {
     margin: 0;
     padding: 0;
@@ -496,18 +539,6 @@ nav.scrolled {
     color: #64ffda;
 }
 
-
-/* Contact Info Hover Effects */
-
-.footer-section p:hover i {
-    transform: scale(1.2);
-    color: #48b9ff;
-}
-
-.footer-section p:hover {
-    color: #64ffda;
-}
-
 .footer-bottom {
     text-align: center;
     padding-top: 40px;
@@ -796,589 +827,304 @@ nav.scrolled {
 }
 
 
-/* About Section Styles */
+/* Add these new styles after your existing CSS */
 
-.about-section {
-    padding: 120px 20px;
-    min-height: 100vh;
+.services-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    z-index: 2;
+    overflow: hidden;
 }
 
-.about-container {
+.services-hero::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #64ffda10, #48b9ff10);
+    animation: rotate 20s linear infinite;
+}
+
+.services-container {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.about-title {
-    font-size: 3.5rem;
-    text-align: center;
-    margin-bottom: 60px;
-    color: #64ffda;
-    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
-}
-
-.journey-card {
-    background: rgba(26, 44, 78, 0.5);
-    border: 1px solid rgba(100, 255, 218, 0.2);
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 60px;
-    position: relative;
-    overflow: hidden;
-}
-
-.year-badge {
-    position: absolute;
-    top: -15px;
-    right: 30px;
-    background: #64ffda;
-    color: #0a192f;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    animation: float 3s ease-in-out infinite;
-}
-
-.founder-section {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.founder-image {
-    position: relative;
-}
-
-.image-container {
-    position: relative;
-    width: 100%;
-    padding-top: 120%;
-    overflow: hidden;
-}
-
-.founder-photo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    filter: grayscale(50%);
-    transition: all 0.3s ease;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(100, 255, 218, 0.2), rgba(72, 185, 255, 0.2));
-    mix-blend-mode: screen;
-}
-
-.founder-info h2 {
-    color: #64ffda;
-    margin-bottom: 15px;
-}
-
-.founder-title {
-    color: #8892b0;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.skill-tags span {
-    background: rgba(100, 255, 218, 0.1);
-    border: 1px solid #64ffda;
-    color: #64ffda;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.mission-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 60px;
-}
-
-.mission-card {
-    background: rgba(26, 44, 78, 0.5);
-    border: 1px solid rgba(100, 255, 218, 0.2);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.mission-card:hover {
-    transform: translateY(-10px);
-}
-
-.mission-card i {
-    font-size: 2.5rem;
-    color: #64ffda;
-    margin-bottom: 20px;
-}
-
-.values-section {
-    text-align: center;
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.value-card {
-    background: rgba(26, 44, 78, 0.5);
-    border: 1px solid rgba(100, 255, 218, 0.2);
-    padding: 30px;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.value-card:hover {
-    transform: translateY(-5px);
-    background: rgba(26, 44, 78, 0.8);
-}
-
-.value-card i {
-    font-size: 2rem;
-    color: #64ffda;
-    margin-bottom: 15px;
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+    padding: 0 2rem;
 }
 
 @media (max-width: 768px) {
-    .about-title {
-        font-size: 2.5rem;
-    }
-    .founder-section {
+    .services-grid {
         grid-template-columns: 1fr;
-    }
-    .mission-section {
-        grid-template-columns: 1fr;
-    }
-    .image-container {
-        padding-top: 100%;
+        gap: 2rem;
     }
 }
 
-
-/* Enhanced Founder Section Styles */
-
-.founder-description {
-    color: #8892b0;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-    text-align: justify;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.skill-tags span {
-    background: rgba(100, 255, 218, 0.05);
-    border: 1px solid rgba(100, 255, 218, 0.3);
-    color: #64ffda;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.skill-tags span:hover {
-    background: rgba(100, 255, 218, 0.1);
-    transform: translateY(-2px);
-}
-
-.founder-title {
-    font-size: 1.3rem;
-    color: #64ffda;
-    margin-bottom: 20px;
+.service-card {
+    background: rgba(26, 44, 78, 0.5);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    border-radius: 15px;
+    padding: 3rem;
     position: relative;
-    display: inline-block;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.founder-title::after {
+.service-card::before {
     content: '';
     position: absolute;
-    bottom: -5px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, #64ffda, transparent);
-}
-
-
-/* Technical Expertise Section */
-
-.tech-expertise {
-    margin: 80px 0;
-    padding: 40px;
-    background: rgba(26, 44, 78, 0.3);
-    border-radius: 20px;
-}
-
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.expertise-card {
-    background: rgba(26, 44, 78, 0.5);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(100, 255, 218, 0.1);
+    height: 100%;
+    background: linear-gradient(45deg, #64ffda08, #48b9ff08);
+    transform: translateY(100%);
     transition: transform 0.3s ease;
 }
 
-.expertise-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(100, 255, 218, 0.3);
+.service-card:hover {
+    transform: translateY(-10px);
 }
 
-.expertise-card i {
+.service-card:hover::before {
+    transform: translateY(0);
+}
+
+.service-icon {
     font-size: 2.5rem;
     color: #64ffda;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    position: relative;
 }
 
-.tech-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+.service-content {
+    position: relative;
+    z-index: 1;
 }
 
-.tech-pills span {
-    background: rgba(100, 255, 218, 0.1);
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    color: #64ffda;
+.service-content ul {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 }
 
-.tech-pills span i {
-    margin-left: 6px;
-    font-size: 1rem;
-    opacity: 0.8;
-}
-
-.tech-pills span:hover i {
-    opacity: 1;
-    transform: rotate(360deg);
-    transition: transform 0.6s ease;
-}
-
-
-/* Backend Tech Pills Styling */
-
-.expertise-card:nth-child(2) .tech-pills span {
-    background: rgba(72, 185, 255, 0.1);
-    border-color: rgba(72, 185, 255, 0.3);
-}
-
-.expertise-card:nth-child(2) .tech-pills span i {
-    color: #48b9ff;
-}
-
-.expertise-card:nth-child(2) .tech-pills span:hover {
-    background: rgba(72, 185, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-
-/* Specific tech brand colors */
-
-.tech-pills span:has(.fa-node-js) {
-    border-color: #68a063 !important;
-}
-
-.tech-pills span:has(.fa-php) {
-    border-color: #777bb3 !important;
-}
-
-.tech-pills span:has(.fa-database) {
-    border-color: #336791 !important;
-}
-
-
-/* Frontend Tech Pills Styling */
-
-.expertise-card:first-child .tech-pills span {
-    background: rgba(97, 218, 251, 0.1);
-    border-color: rgba(97, 218, 251, 0.3);
-}
-
-.expertise-card:first-child .tech-pills span i {
-    color: #61dafb;
-}
-
-
-/* Specific tech brand colors */
-
-.tech-pills span:has(.fa-react) {
-    border-color: #61dafb !important;
-}
-
-.tech-pills span:has(.fa-js) {
-    border-color: #f7df1e !important;
-}
-
-.tech-pills span:has(.fa-html5) {
-    border-color: #e34f26 !important;
-}
-
-.tech-pills span:has(.fa-css3-alt) {
-    border-color: #264de4 !important;
-}
-
-
-/* Add rotation animation for React icon */
-
-.tech-pills span:has(.fa-react) i {
-    animation: spin 4s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+@media (max-width: 480px) {
+    .service-content ul {
+        grid-template-columns: 1fr;
     }
 }
 
-
-/* Timeline Section */
-
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: #64ffda;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: #64ffda;
-    border-radius: 50%;
-}
-
-.timeline-content {
-    position: relative;
-    width: calc(50% - 50px);
-    padding: 20px;
-    background: rgba(26, 44, 78, 0.5);
-    border-radius: 10px;
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    left: calc(50% + 50px);
-}
-
-.timeline-date {
-    display: inline-block;
-    padding: 5px 10px;
-    background: #64ffda;
-    color: #0a192f;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-
-/* Education Section */
-
-.education-background {
-    margin: 80px 0;
-}
-
-.education-card {
-    display: flex;
-    gap: 30px;
-    background: rgba(26, 44, 78, 0.3);
-    padding: 40px;
-    border-radius: 20px;
-    margin-top: 40px;
-}
-
-.education-icon {
-    font-size: 3rem;
-    color: #64ffda;
-}
-
-.education-details {
-    flex: 1;
-}
-
-.education-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.education-skills span {
-    background: rgba(100, 255, 218, 0.1);
-    color: #64ffda;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-
-/* CTA Section */
-
-.cta-section {
-    text-align: center;
-    margin: 100px 0 60px;
-    padding: 60px 20px;
-    background: rgba(26, 44, 78, 0.3);
-    border-radius: 20px;
-}
-
-.cta-section h2 {
-    color: #64ffda;
-    margin-bottom: 20px;
-}
-
-.cta-section p {
+.service-content ul li {
     color: #8892b0;
-    margin-bottom: 30px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.cta-button {
-    display: inline-flex;
+.service-content ul li::before {
+    content: '▹';
+    color: #64ffda;
+}
+
+.service-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 44, 78, 0.95);
+    display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-hover {
+    opacity: 1;
+}
+
+.service-btn {
+    padding: 0.8rem 1.5rem;
     background: transparent;
     border: 2px solid #64ffda;
     color: #64ffda;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 1.1rem;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.cta-button:hover {
-    background: rgba(100, 255, 218, 0.1);
-    transform: translateY(-3px);
-}
-
-.cta-button i {
+.service-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #64ffda;
+    transform: translateX(-100%) rotate(45deg);
     transition: transform 0.3s ease;
 }
 
-.cta-button:hover i {
-    transform: translateX(5px);
+.service-btn:hover {
+    color: #0a192f;
 }
+
+.service-btn:hover::before {
+    transform: translateX(0) rotate(45deg);
+}
+
+.tech-stack {
+    padding: 4rem 0;
+    background: rgba(26, 44, 78, 0.3);
+    overflow: hidden;
+}
+
+@keyframes slideTrack {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* Add responsive styles */
 
 @media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
+    .services-grid {
+        grid-template-columns: 1fr;
     }
-    .timeline-dot {
-        left: 20px;
-    }
-    .timeline-content {
-        width: calc(100% - 50px);
-        left: 50px !important;
-    }
-    .education-card {
-        flex-direction: column;
-        text-align: center;
+    .services-hero h1 {
+        font-size: 2.5rem;
     }
 }
 
 
-/* Rest of the existing styles from index.html... */
+/* Modal Styles */
 
-.nav-links a.active {
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.95);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1a2c4e;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.modal-content.modal-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #64ffda;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    color: #64ffda;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.modal-section {
+    padding: 1.5rem;
+    background: rgba(100, 255, 218, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.modal-section h3 {
+    color: #64ffda;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-section ul {
+    list-style: none;
+}
+
+.modal-section ul li {
+    color: #8892b0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-section ul li::before {
+    content: '▹';
     color: #64ffda;
 }
 
-.nav-links a.active::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: #64ffda;
-    transform: scaleX(1);
-}
-
-.nav-links a.active span::before {
-    transform: scaleX(1);
-}
-
-
-/* Add a subtle glow effect */
-
-.nav-links a.active {
-    text-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
-}
-
-
-/* Responsive styles */
-
 @media (max-width: 768px) {
-    .nav-links a.active {
-        background: rgba(100, 255, 218, 0.1);
-        padding: 10px 20px;
-        border-radius: 5px;
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }

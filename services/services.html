@@ -4,13 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - PixelForge Agency</title>
+    <title>PixelForge Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -27,7 +24,7 @@
 
     <nav>
         <div class="nav-content">
-            <a href="#" class="logo">PixelForge <span>Agency</span></a>
+            <a href="./../index.html" class="logo">PixelForge <span>Agency</span></a>
             <div class="nav-links">
                 <a href="/about us"><span>About</span></a>
                 <a href="/services" class="active"><span>Services</span></a>
@@ -37,98 +34,147 @@
         </div>
     </nav>
 
-    <main class="contact-page">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get In Touch</h2>
-                <p class="contact-desc">Let's create something amazing together! Drop us a message, and we'll get back to you as soon as possible.</p>
+    <section class="services-hero">
+        <div class="hero-content reveal-on-scroll">
+            <h1 class="glitch" data-text="Our Services">Our Services</h1>
+            <p class="subtitle">Transforming Ideas into Digital Reality</p>
+        </div>
+    </section>
 
-                <div class="info-items">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Location</h3>
-                            <p>Errachidia, Tinejdad, Morocco</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Email</h3>
-                            <p>abdollahbagueri02@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Phone</h3>
-                            <p>+21267495006</p>
-                        </div>
-                    </div>
+    <section class="services-container">
+        <div class="services-grid">
+            <div class="service-card reveal-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
                 </div>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/abdellah-bagueri-ab8035225/" target="_blank" class="social-btn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/abdollah34" target="_blank" class="social-btn">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/BagueriAbdellah" target="_blank" class="social-btn">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.instagram.com/invites/contact/?igsh=zpwrgg44ibhy&utm_content=x078sqx" target="_blank" class="social-btn">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <h3>Web Development</h3>
+                <div class="service-content">
+                    <p>Custom websites that capture your brand's essence</p>
+                    <ul>
+                        <li>Responsive Design</li>
+                        <li>Modern Frameworks</li>
+                        <li>SEO Optimization</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Content Management Systems</li>
+                        <li>Website Maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-hover">
+                    <a href="#" class="service-btn" onclick="openModal('web-modal')">Learn More</a>
                 </div>
             </div>
 
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" required>
-                        <label for="name">Your Name</label>
-                        <div class="line"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">Your Email</label>
-                        <div class="line"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" id="subject" required>
-                        <label for="subject">Subject</label>
-                        <div class="line"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea id="message" required></textarea>
-                        <label for="message">Your Message</label>
-                        <div class="line"></div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <span class="btn-text">Send Message</span>
-                        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-                    </button>
-                </form>
+            <div class="service-card reveal-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Apps</h3>
+                <div class="service-content">
+                    <p>Native and cross-platform mobile solutions</p>
+                    <ul>
+                        <li>iOS Development</li>
+                        <li>Android Development</li>
+                        <li>Cross-Platform Apps</li>
+                        <li>App UI/UX Design</li>
+                        <li>App Maintenance</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="service-hover">
+                    <a href="#" class="service-btn" onclick="openModal('mobile-modal')">Learn More</a>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Remove testimonials section and go straight to CTA section -->
+    <!-- Add Modal Elements -->
+    <div id="web-modal" class="modal">
+        <div class="modal-content reveal-on-scroll">
+            <span class="close-modal" onclick="closeModal('web-modal')">&times;</span>
+            <h2>Web Development Services</h2>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Core Services</h3>
+                    <ul>
+                        <li>Custom Website Development</li>
+                        <li>E-commerce Solutions</li>
+                        <li>CMS Development</li>
+                        <li>Website Maintenance</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies</h3>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>React.js, Node.js</li>
+                        <li>PHP, MySQL</li>
+                        <li>WordPress, WooCommerce</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-line"></i> Benefits</h3>
+                    <ul>
+                        <li>Responsive Design</li>
+                        <li>SEO Optimization</li>
+                        <li>Fast Loading Speed</li>
+                        <li>Security Features</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/contact us" class="cta-button">Get Started</a>
+        </div>
+    </div>
 
-    <div id="map" class="map-container"></div>
+    <div id="mobile-modal" class="modal">
+        <div class="modal-content reveal-on-scroll">
+            <span class="close-modal" onclick="closeModal('mobile-modal')">&times;</span>
+            <h2>Mobile App Development</h2>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-mobile-alt"></i> Core Services</h3>
+                    <ul>
+                        <li>iOS App Development</li>
+                        <li>Android App Development</li>
+                        <li>Cross-Platform Apps</li>
+                        <li>App Maintenance</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technologies</h3>
+                    <ul>
+                        <li>React Native</li>
+                        <li>Swift, SwiftUI</li>
+                        <li>Kotlin, Java</li>
+                        <li>Flutter</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-line"></i> Benefits</h3>
+                    <ul>
+                        <li>Native Performance</li>
+                        <li>Intuitive UI/UX</li>
+                        <li>Offline Functionality</li>
+                        <li>Regular Updates</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/contact us" class="cta-button">Get Started</a>
+        </div>
+    </div>
+
+    <section class="tech-stack">
+        <h2 class="section-title reveal-on-scroll">Technologies We Use</h2>
+        <div class="tech-slider">
+            <!-- Tech stack items will be duplicated by CSS animation -->
+            <div class="tech-track">
+                <div class="tech-item"><i class="fab fa-react"></i>React</div>
+                <div class="tech-item"><i class="fab fa-node"></i>Node.js</div>
+                <div class="tech-item"><i class="fab fa-python"></i>Python</div>
+                <div class="tech-item"><i class="fab fa-aws"></i>AWS</div>
+                <div class="tech-item"><i class="fab fa-angular"></i>Angular</div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="footer-content">
@@ -186,8 +232,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-    <script src="index.js"></script>
     <script>
         particlesJS('particles-js', {
             "particles": {
@@ -309,6 +353,45 @@
         if ('ontouchstart' in window) {
             document.querySelector('.mouse-cursor').style.display = 'none';
         }
+
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            // Add animation class
+            setTimeout(() => {
+                modal.querySelector('.modal-content').classList.add('modal-visible');
+            }, 10);
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.querySelector('.modal-content').classList.remove('modal-visible');
+
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModal = document.querySelector('.modal[style*="display: flex"]');
+                if (openModal) {
+                    closeModal(openModal.id);
+                }
+            }
+        });
     </script>
 </body>
 
