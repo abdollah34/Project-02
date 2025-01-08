@@ -1164,12 +1164,12 @@ nav.scrolled {
     .nav-content,
     .hero-content,
     .container {
-        padding-left: max(15px, env(safe-area-inset-left));
-        padding-right: max(15px, env(safe-area-inset-right));
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .floating-buttons {
-        right: max(15px, env(safe-area-inset-right));
-        bottom: max(15px, env(safe-area-inset-bottom));
+        right: 15px;
+        bottom: 15px;
     }
 }
 
