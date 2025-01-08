@@ -1,4 +1,4 @@
-        .logo {
+    .logo {
             font-size: 28px;
             font-weight: bold;
             background: linear-gradient(45deg, #64ffda, #48b9ff);
@@ -1030,8 +1030,9 @@
                 height: 40px;
                 font-size: 16px;
             }
-<<<<<<< HEAD
+            <<<<<<< HEAD
         }
-=======
-        }
->>>>>>> 1c9c7698e13b9cdb1b6e19f5df29c46a7bfa1390
+        
+        =======
+    }
+    >>>>>>>1c9c7698e13b9cdb1b6e19f5df29c46a7bfa1390
