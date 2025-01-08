@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge Agency - Creative Development Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #0a192f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+        }
+        
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(10, 25, 47, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #64ffda, #48b9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 40px;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background: #64ffda;
+            transition: 0.3s ease-in-out;
+        }
+        
+        .nav-links a:hover::before {
+            left: 0;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        
+        .glitch-wrapper {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .glitch {
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.04em 0 #fffc00;
+            animation: glitch 725ms infinite;
+        }
+        
+        .glitch span {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .glitch span:first-child {
+            animation: glitch 500ms infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+            transform: translate(-0.04em, -0.03em);
+            opacity: 0.75;
+        }
+        
+        .glitch span:last-child {
+            animation: glitch 375ms infinite;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+            transform: translate(0.04em, 0.03em);
+            opacity: 0.75;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: #8892b0;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 18px;
+            color: #64ffda;
+            text-decoration: none;
+            border: 2px solid #64ffda;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        
+        .cta-button:hover {
+            color: #0a192f;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: #64ffda;
+            border-radius: 50%;
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+        
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.04em 0 #fffc00;
+            }
+            15% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.04em 0 #fffc00;
+            }
+            16% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff, -0.05em -0.05em 0 #fffc00;
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff, -0.05em -0.05em 0 #fffc00;
+            }
+            50% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff, 0 -0.04em 0 #fffc00;
+            }
+            99% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff, 0 -0.04em 0 #fffc00;
+            }
+            100% {
+                text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff, -0.04em -0.025em 0 #fffc00;
+            }
+        }
+        
+        .floating-buttons {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64ffda;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #64ffda;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+            z-index: -1;
+        }
+        
+        .floating-btn:hover {
+            color: #0a192f;
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+        
+        .floating-btn:hover::before {
+            transform: translateY(0);
+        }
+        
+        .tooltip {
+            position: absolute;
+            right: 80px;
+            background: rgba(10, 25, 47, 0.9);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .floating-btn:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-10px);
+        }
+        
+        @media (max-width: 768px) {
+            .floating-buttons {
+                right: 20px;
+                bottom: 20px;
+            }
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
+        .footer {
+            background: rgba(17, 34, 64, 0.95);
+            padding: 60px 0 20px;
+            position: relative;
+            z-index: 2;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: #64ffda;
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: #64ffda;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #64ffda;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64ffda;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #64ffda;
+            color: #0a192f;
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #8892b0;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: #64ffda;
+            padding-left: 5px;
+        }
+        
+        .footer-section p {
+            color: #8892b0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-section i {
+            color: #64ffda;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            color: #8892b0;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .footer-section p {
+                justify-content: center;
+            }
+        }
+        
+        .background-svg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .svg-blob {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            animation: blobFloat 20s ease-in-out infinite;
+        }
+        
+        .svg-blob:nth-child(2) {
+            right: -400px;
+            top: -400px;
+            animation-delay: -10s;
+        }
+        
+        .svg-blob:first-child {
+            left: -400px;
+            bottom: -400px;
+        }
+        
+        @keyframes blobFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(50px, -50px) rotate(45deg);
+            }
+            66% {
+                transform: translate(-50px, 50px) rotate(-45deg);
+            }
+        }
+        
+        .mouse-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #64ffda;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s;
+            mix-blend-mode: difference;
+        }
+        
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glitch-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #64ffda10, #48b9ff10);
+            filter: blur(50px);
+            z-index: -1;
+        }
+        
+        .floating-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #64ffda30 0%, transparent 70%);
+            filter: blur(15px);
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .floating-btn:hover::after {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .background-svg {
+                display: none;
+            }
+        }
+        /* Add these new styles */
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #64ffda;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #64ffda;
+            border-radius: 3px;
+        }
+        
+        .tech-stack {
+            padding: 100px 0;
+            background: rgba(17, 34, 64, 0.5);
+            overflow: hidden;
+        }
+        
+        .tech-slider {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .tech-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .tech-item {
+            flex: 0 0 auto;
+            padding: 1rem 2rem;
+            margin: 0 1rem;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            color: #64ffda;
+            white-space: nowrap;
+        }
+        
+        .tech-item i {
+            font-size: 1.5rem;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .featured-projects {
+            padding: 100px 0;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 20px;
+        }
+        
+        .project-card {
+            perspective: 1500px;
+            height: 300px;
+        }
+        
+        .project-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover .project-content {
+            transform: rotateY(180deg);
+        }
+        
+        .project-front,
+        .project-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .project-front {
+            background: #1a2c4e;
+        }
+        
+        .project-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-back {
+            background: #1a2c4e;
+            transform: rotateY(180deg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .project-back h3 {
+            color: #64ffda;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-back p {
+            color: #8892b0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-link {
+            padding: 0.5rem 1rem;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .project-link:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .tech-item {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="background-svg">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="svg-blob">
+            <path fill="#64ffda20" d="M45.5,-46.1C57.9,-34.3,66.3,-17.1,66.8,0.5C67.3,18.1,59.8,36.2,47.3,47.1C34.8,58,17.4,61.8,0.2,61.6C-17,61.3,-34,57.1,-46.7,46.3C-59.5,35.5,-68,18.2,-68.1,-0.1C-68.2,-18.4,-59.9,-36.8,-46.6,-48.6C-33.4,-60.4,-16.7,-65.5,0.3,-65.8C17.2,-66.1,33.1,-57.9,45.5,-46.1Z" transform="translate(100 100)" />
+        </svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="svg-blob">
+            <path fill="#48b9ff20" d="M38.5,-38.7C51.6,-29.1,65.5,-14.5,67.2,2.1C68.9,18.7,58.4,37.3,45.3,43.9C32.2,50.5,16.1,45.1,1.7,43.4C-12.8,41.7,-25.5,43.7,-35.8,37.1C-46.1,30.5,-53.9,15.2,-54.5,-0.6C-55.1,-16.4,-48.4,-32.8,-37.1,-42.4C-25.8,-52,-12.9,-54.8,0.9,-55.7C14.6,-56.6,25.3,-48.3,38.5,-38.7Z" transform="translate(100 100)" />
+        </svg>
+    </div>
+    <div class="mouse-cursor"></div>
+
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">PixelForge <span>Agency</span></a>
+            <div class="nav-links">
+                <a href="/about us">About</a>
+                <a href="/services">Services</a>
+                <a href="/portfolio">Work</a>
+                <a href="/contact us">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content reveal-on-scroll">
+                <div class="glitch-wrapper">
+                    <div class="glitch">
+                        Creative Developer
+                        <span aria-hidden="true">Creative Developer</span>
+                        <span aria-hidden="true">Creative Developer</span>
+                    </div>
+                </div>
+                <p class="subtitle">Crafting digital experiences that push the boundaries of web development. Transforming ideas into stunning, interactive realities.</p>
+                <a href="/contact us" class="cta-button">Let's Create Something Amazing</a>
+            </div>
+        </section>
+
+        <section class="tech-stack reveal-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Technologies I Work With</h2>
+                <div class="tech-slider">
+                    <div class="tech-track">
+                        <div class="tech-item"><i class="fab fa-html5"></i> HTML5</div>
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+                        <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="tech-item"><i class="fab fa-react"></i> React</div>
+                        <div class="tech-item"><i class="fab fa-node"></i> Node.js</div>
+                        <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+                        <div class="tech-item php"><i class="fab fa-php"></i> PHP</div>
+                        <!-- Duplicate for infinite scroll effect -->
+                        <div class="tech-item"><i class="fab fa-html5"></i> HTML5</div>
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+                        <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-projects reveal-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <div class="project-front">
+                                <img src="https://via.placeholder.com/400x300" alt="Project Preview">
+                            </div>
+                            <div class="project-back">
+                                <h3>E-Commerce Platform</h3>
+                                <p>Modern online store with React and Node.js</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more project cards as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Let's Connect</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/about us">About</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/contact us">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> hello@example.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PixelForge Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="/contact us" class="floating-btn">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contact Me</span>
+        </a>
+        <a href="https://github.com/yourusername" class="floating-btn">
+            <i class="fab fa-github"></i>
+            <span class="tooltip">Check My Github</span>
+        </a>
+        <a href="#" class="floating-btn" id="scrollTop">
+            <i class="fas fa-arrow-up"></i>
+            <span class="tooltip">Back to Top</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#64ffda"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#64ffda",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                }
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll to top
+        document.getElementById('scrollTop').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hide/Show scroll to top button
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.getElementById('scrollTop');
+            if (window.scrollY > 300) {
+                scrollBtn.style.opacity = '1';
+                scrollBtn.style.pointerEvents = 'all';
+            } else {
+                scrollBtn.style.opacity = '0';
+                scrollBtn.style.pointerEvents = 'none';
+            }
+        });
+
+        // Custom cursor
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.mouse-cursor');
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+
+            const hoverable = e.target.closest('a, button');
+            if (hoverable) {
+                cursor.style.transform = 'scale(1.5)';
+            } else {
+                cursor.style.transform = 'scale(1)';
+            }
+        });
+
+        // Scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Disable cursor on touch devices
+        if ('ontouchstart' in window) {
+            document.querySelector('.mouse-cursor').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
