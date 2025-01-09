@@ -1568,3 +1568,248 @@ html {
 
 
 /* ...rest of existing code... */
+
+
+/* Enhanced Mobile Responsive Styles */
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 0 50px;
+    }
+    .hero-content {
+        padding: 0 20px;
+    }
+    .glitch {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+    .subtitle {
+        font-size: 16px;
+        padding: 0 10px;
+        margin: 20px 0;
+    }
+    .cta-wrapper {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+    /* Fix image showcase for mobile */
+    .image-showcase {
+        height: 300px;
+        margin: 30px 0;
+    }
+    .image-item {
+        flex: 0 0 250px;
+        height: 200px;
+    }
+    .image-overlay {
+        padding: 15px;
+    }
+    .image-overlay h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .image-overlay p {
+        font-size: 14px;
+    }
+    /* Adjust tech stack for mobile */
+    .tech-stack {
+        padding: 50px 0;
+    }
+    .tech-item {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 0 8px;
+    }
+    /* Adjust grid layout for mobile */
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 15px;
+    }
+    .grid-item {
+        height: 200px;
+    }
+    /* Improve navigation for mobile */
+    .nav-content {
+        padding: 0 15px;
+    }
+    .nav-links.active {
+        padding: 80px 20px;
+    }
+    .nav-links a {
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+    /* Adjust footer for mobile */
+    .footer {
+        padding: 40px 0 20px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+    .social-links {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    /* Fix floating buttons position */
+    .floating-buttons {
+        right: 10px;
+        bottom: 10px;
+        gap: 10px;
+    }
+    .floating-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    /* Hide tooltips on mobile */
+    .tooltip {
+        display: none;
+    }
+}
+
+
+/* Extra small devices */
+
+@media (max-width: 360px) {
+    .glitch {
+        font-size: 28px;
+    }
+    .nav-content {
+        padding: 0 10px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .image-item {
+        flex: 0 0 200px;
+        height: 150px;
+    }
+}
+
+
+/* Fix for devices with notches */
+
+@supports (padding: env(safe-area-inset-left)) {
+    .nav-content {
+        padding-left: env(safe-area-inset-left);
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
+    .floating-buttons {
+        bottom: max(10px, env(safe-area-inset-bottom));
+        right: max(10px, env(safe-area-inset-right));
+    }
+}
+
+
+/* Fix container positioning */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+/* Add main content wrapper */
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Fix projects section layout */
+
+.projects-section {
+    padding: 80px 0;
+}
+
+
+/* Fix image showcase positioning */
+
+.image-showcase {
+    width: 100%;
+    height: 400px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-track {
+    display: flex;
+    gap: 24px;
+    position: absolute;
+    padding: 24px;
+}
+
+
+/* Fix tech stack positioning */
+
+.tech-stack {
+    padding: 80px 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* Fix portfolio grid positioning */
+
+.portfolio-grid {
+    padding: 80px 0;
+    width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+
+/* Mobile responsiveness improvements */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    .projects-section {
+        padding: 40px 0;
+    }
+    .image-showcase {
+        height: 300px;
+        margin: 20px 0;
+    }
+    .tech-stack,
+    .portfolio-grid {
+        padding: 40px 0;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+
+/* ...rest of existing code... */
