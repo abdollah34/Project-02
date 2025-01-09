@@ -52,6 +52,69 @@ particlesJS('particles-js', {
     }
 });
 
+// Enhanced particle effect
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#64ffda" },
+        shape: {
+            type: "circle",
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 5 }
+        },
+        opacity: {
+            value: 0.5,
+            random: true,
+            animation: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+            }
+        },
+        size: {
+            value: 3,
+            random: true,
+            animation: {
+                enable: true,
+                speed: 2,
+                size_min: 0.1,
+                sync: false
+            }
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#64ffda",
+            opacity: 0.2,
+            width: 1
+        },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+        }
+    },
+    interactivity: {
+        detect_on: "canvas",
+        events: {
+            onhover: {
+                enable: true,
+                mode: ["grab", "bubble"]
+            },
+            onclick: {
+                enable: true,
+                mode: "push"
+            },
+            resize: true
+        }
+    }
+});
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
@@ -180,5 +243,59 @@ navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         menuButton.classList.remove('active');
+    });
+});
+
+// Magnetic button effect
+document.querySelectorAll('.cta-button, .grid-btn, .floating-btn').forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        button.style.transform = `translate(${deltaX * 10}px, ${deltaY * 10}px)`;
+    });
+
+    button.addEventListener('mouseleave', () => {
+        button.style.transform = '';
+    });
+});
+
+// 3D Tilt effect for project cards
+document.querySelectorAll('.grid-item').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        card.style.transform = `perspective(1000px) rotateY(${deltaX * 10}deg) rotateX(${-deltaY * 10}deg) scale3d(1.05, 1.05, 1.05)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+// Dynamic text animation for tech stack
+const techItems = document.querySelectorAll('.tech-item');
+techItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`;
+    item.addEventListener('mouseover', () => {
+        item.style.transform = 'scale(1.2) rotate(5deg)';
+    });
+    item.addEventListener('mouseleave', () => {
+        item.style.transform = '';
     });
 });
