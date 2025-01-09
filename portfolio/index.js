@@ -636,3 +636,23 @@ const animationObserver = new IntersectionObserver(observerCallback, {
 document.querySelectorAll('.reveal-on-scroll').forEach(el => {
     animationObserver.observe(el);
 });
+
+// Animate skill bars when in view
+document.querySelectorAll('.progress').forEach(progress => {
+    const width = progress.getAttribute('data-width');
+    progress.style.setProperty('--width', `${width}%`);
+});
+
+const observerSkills = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.closest('.achievement-card').classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll('.progress').forEach(el => {
+    observerSkills.observe(el);
+});
