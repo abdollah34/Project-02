@@ -418,20 +418,6 @@ window.addEventListener('load', () => {
     setTimeout(() => loader.style.display = 'none', 500);
 });
 
-// Smooth scrolling sections
-const sections = document.querySelectorAll('section');
-let currentSection = 0;
-
-window.addEventListener('wheel', (e) => {
-    if (e.deltaY > 0 && currentSection < sections.length - 1) {
-        currentSection++;
-    } else if (e.deltaY < 0 && currentSection > 0) {
-        currentSection--;
-    }
-
-    sections[currentSection].scrollIntoView({ behavior: 'smooth' });
-});
-
 // Text scramble effect
 class TextScramble {
     constructor(el) {
@@ -655,4 +641,20 @@ const observerSkills = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.progress').forEach(el => {
     observerSkills.observe(el);
+});
+
+// Timeline animation
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+document.querySelectorAll('.timeline-item').forEach(item => {
+    timelineObserver.observe(item);
 });
