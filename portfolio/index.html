@@ -40,7 +40,7 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content reveal-on-scroll">
+            <div class="hero-content">
                 <div class="glitch-wrapper">
                     <div class="glitch">
                         Creative Developer
@@ -49,11 +49,10 @@
                     </div>
                 </div>
                 <p class="subtitle">Crafting digital experiences that push the boundaries of web development. Transforming ideas into stunning, interactive realities.</p>
-                <div class="cta-wrapper reveal-on-scroll">
+                <div class="cta-wrapper">
                     <a href="#work" class="cta-button">View My Work</a>
                     <a href="./../contact us/index.html" class="cta-button secondary">Get in Touch</a>
                 </div>
-            </div>
             </div>
         </section>
 
@@ -114,51 +113,56 @@
                     </div>
                 </section>
 
-                <section id="skills" class="tech-stack">
-                    <h2 class="section-title reveal-on-scroll">Skills & Technologies</h2>
-                    <div class="tech-slider">
-                        <div class="tech-track">
-                            <div class="tech-item"><i class="fab fa-html5"></i>HTML5</div>
-                            <div class="tech-item"><i class="fab fa-css3-alt"></i>CSS3</div>
-                            <div class="tech-item"><i class="fab fa-js"></i>JavaScript</div>
-                            <div class="tech-item"><i class="fab fa-react"></i>React</div>
-                            <div class="tech-item"><i class="fab fa-node"></i>Node.js</div>
-                            <div class="tech-item php"><i class="fab fa-php"></i>PHP</div>
-                            <div class="tech-item"><i class="fab fa-python"></i>Python</div>
-                            <!-- Duplicate items for infinite scroll -->
-                            <div class="tech-item"><i class="fab fa-html5"></i>HTML5</div>
-                            <div class="tech-item"><i class="fab fa-css3-alt"></i>CSS3</div>
-                            <!-- ...more duplicates... -->
-                        </div>
+                <section class="tech-stack">
+                    <h2 class="section-title reveal-on-scroll">Technologies We Use</h2>
+                    <div class="tech-track">
+                        <div class="tech-item"><i class="fab fa-html5"></i>HTML5</div>
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i>CSS3</div>
+                        <div class="tech-item"><i class="fab fa-js"></i>JavaScript</div>
+                        <div class="tech-item"><i class="fab fa-react"></i>React</div>
+                        <div class="tech-item"><i class="fab fa-node"></i>Node.js</div>
+                        <div class="tech-item php"><i class="fab fa-php"></i>PHP</div>
+                        <div class="tech-item"><i class="fab fa-python"></i>Python</div>
+                        <div class="tech-item"><i class="fab fa-html5"></i>HTML5</div>
+
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i>CSS3</div>
+                        <div class="tech-item"><i class="fab fa-js"></i>JavaScript</div>
+                        <div class="tech-item"><i class="fab fa-react"></i>React</div>
+                        <div class="tech-item"><i class="fab fa-node"></i>Node.js</div>
+                        <div class="tech-item php"><i class="fab fa-php"></i>PHP</div>
+                        <div class="tech-item"><i class="fab fa-python"></i>Python</div>
+                        <div class="tech-item"><i class="fab fa-html5"></i>HTML5</div>
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i>CSS3</div>
+                        <!--iwa zayd da ana tsnd-->
                     </div>
                 </section>
 
                 <section id="work" class="portfolio-grid">
                     <h2 class="section-title reveal-on-scroll">Recent Projects</h2>
                     <div class="grid-container">
-                        <div class="grid-item">
+                        <div class="grid-item reveal-on-scroll">
                             <img src="./../path/to/Screenshot 2025-01-08 120158.png" alt="Project 1">
                             <div class="grid-overlay">
                                 <h3>Fashion Haven</h3>
                                 <div class="tech-tags">
                                     <span>React</span>
                                     <span>Node.js</span>
-
                                     <span>HTML5/CSS3</span>
-                                    <SPAN>PHP</SPAN>
+                                    <span>PHP</span>
                                 </div>
                                 <p>E-commerce platform with admin dashboard and analytics</p>
-                                <div class="grid-buttons">
-                                    <a href="https://greenyellow-dotterel-223863.hostingersite.com/index.html" class="grid-btn">View Project <i class="fas fa-external-link-alt"></i></a>
-                                </div>
+                                <a href="https://greenyellow-dotterel-223863.hostingersite.com/index.html" class="grid-btn" target="_blank">
+                                    View Project <i class="fas fa-external-link-alt"></i>
+                                </a>
                             </div>
                         </div>
-                        <!-- Add more grid-items as needed -->
+                        <!-- Add more grid-items here -->
                     </div>
                 </section>
             </div>
         </section>
     </main>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -215,7 +219,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Remove duplicate script tags and use index.js -->
+    <script src="index.js"></script>
 </body>
 
 </html>

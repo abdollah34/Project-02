@@ -1419,3 +1419,168 @@ nav.scrolled {
         border-radius: 5px;
     }
 }
+
+
+/* Responsive Sizing Fixes */
+
+.about-section {
+    padding: 80px 20px;
+    /* Reduced padding */
+}
+
+.about-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    /* Responsive font size */
+    margin-bottom: 40px;
+    /* Reduced margin */
+}
+
+.journey-card {
+    padding: 20px;
+    /* Reduced padding */
+    margin-bottom: 40px;
+}
+
+.founder-section {
+    gap: 20px;
+    /* Reduced gap */
+}
+
+.mission-section {
+    gap: 20px;
+}
+
+.values-grid {
+    gap: 20px;
+}
+
+.expertise-grid {
+    gap: 20px;
+}
+
+
+/* Better Mobile Responsiveness */
+
+@media (max-width: 768px) {
+    .about-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    .mission-card,
+    .value-card,
+    .expertise-card {
+        padding: 20px;
+    }
+    .tech-expertise {
+        padding: 20px;
+        margin: 40px 0;
+    }
+    .education-card {
+        padding: 20px;
+    }
+    .cta-section {
+        padding: 40px 20px;
+        margin: 60px 0 40px;
+    }
+    .tech-pills {
+        gap: 8px;
+    }
+    .tech-pills span {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+    .skill-tags {
+        gap: 8px;
+    }
+    .skill-tags span {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+
+/* Tablet Responsiveness */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .about-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Larger Screens */
+
+@media (min-width: 1025px) {
+    .about-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+
+/* Updated Founder Section Styles */
+
+.founder-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Changed to single column */
+    gap: 30px;
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(26, 44, 78, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.founder-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.founder-info h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+}
+
+.founder-description {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.8;
+    color: #8892b0;
+    margin-bottom: 30px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.skill-tags span {
+    padding: 8px 16px;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+
+/* Mobile Responsiveness for Founder Section */
+
+@media (max-width: 768px) {
+    .founder-section {
+        padding: 15px;
+        margin: 30px 0;
+    }
+    .founder-info {
+        text-align: center;
+    }
+    .skill-tags {
+        justify-content: center;
+        gap: 10px;
+    }
+    .skill-tags span {
+        padding: 6px 12px;
+    }
+}
