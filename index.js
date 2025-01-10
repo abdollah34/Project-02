@@ -31,5 +31,3 @@ const observerCounter = new IntersectionObserver((entries) => {
 document.querySelector('.achievements-counter').forEach(section => {
     observerCounter.observe(section);
 });
-
-// ...existing code...
