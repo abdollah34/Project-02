@@ -53,12 +53,9 @@
         <section class="hero">
             <div class="hero-content reveal-on-scroll">
                 <div class="agency-name">PixelForge <span>Agency</span></div>
-                <div class="glitch-wrapper">
-                    <div class="glitch">
-                        <span aria-hidden="true" class="glitch-text"></span>
-                        <span class="glitch-text main"></span>
-                        <span aria-hidden="true" class="glitch-text"></span>
-                    </div>
+                <div class="typing-container">
+                    <span class="typed-text"></span>
+                    <span class="cursor"></span>
                 </div>
                 <p class="subtitle">Crafting digital experiences that push the boundaries of web development. Transforming ideas into stunning, interactive realities.</p>
                 <a href="./contact us/index.html" class="cta-button">Let's Create Something Amazing</a>
@@ -149,6 +146,96 @@
             <div class="wave-bar" style="animation-delay: 0.1s"></div>
             <div class="wave-bar" style="animation-delay: 0.2s"></div>
             <!-- ... add 18 more with increasing delays ... -->
+        </div>
+
+        <section class="timeline-section">
+            <h2 class="section-title">My Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-year="2020-22">
+                    <div class="timeline-content">
+                        <h3>Hardware Enthusiast</h3>
+                        <p>Started my tech journey building custom PCs and exploring hardware solutions. Specialized in computer assembly, optimization, and troubleshooting.</p>
+                        <div class="timeline-tags">
+                            <span>PC Building</span>
+                            <span>Hardware</span>
+                            <span>Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-content">
+                        <h3>Python Programming</h3>
+                        <p>Began my software development journey with Python, learning fundamentals of programming and problem-solving.</p>
+                        <div class="timeline-tags">
+                            <span>Python</span>
+                            <span>Programming Basics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-content">
+                        <h3>C Programming & Full Stack</h3>
+                        <p>Intensive preparation for 1337 school by mastering C programming. Simultaneously learned full stack development, combining frontend and backend technologies.</p>
+                        <div class="timeline-tags">
+                            <span>C</span>
+                            <span>Full Stack</span>
+                            <span>Web Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="Present">
+                    <div class="timeline-content">
+                        <h3>Professional Success</h3>
+                        <p>Successfully completed multiple client projects and launched PixelForge Agency, offering comprehensive development solutions.</p>
+                        <div class="timeline-tags">
+                            <span>Agency Launch</span>
+                            <span>Client Projects</span>
+                            <span>Professional Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements-counter">
+            <div class="counter-container">
+                <div class="counter-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span class="counter" data-target="25">3+</span>
+                    <h4>Projects Completed</h4>
+                </div>
+                <div class="counter-item">
+                    <i class="fas fa-coffee"></i>
+                    <span class="counter" data-target="1000">15+</span>
+                    <h4>Cups of Coffee</h4>
+                </div>
+                <div class="counter-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="counter" data-target="1500">300+</span>
+                    <h4>Hours Coded</h4>
+                </div>
+            </div>
+        </section>
+
+        <div class="chat-widget">
+            <button class="chat-toggle">
+                <i class="fas fa-comments"></i>
+            </button>
+            <div class="chat-box">
+                <div class="chat-header">
+                    <h3>Let's Chat!</h3>
+                    <button class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chat-messages">
+                    <div class="message bot">
+                        👋 Hi! How can I help you today?
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message...">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -355,32 +442,29 @@
             });
         });
 
-        // Glitch text effect
+        // Typing effect
         const texts = ["Web Developer", "UI Designer", "Problem Solver"];
-        let currentIndex = 0;
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
 
-        function updateGlitchText() {
-            const glitchSpans = document.querySelectorAll('.glitch-text');
-            glitchSpans.forEach(span => {
-                span.textContent = texts[currentIndex];
-            });
+        function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
 
-            // Add glitch animation classes
-            const glitchWrapper = document.querySelector('.glitch');
-            glitchWrapper.classList.add('animate');
-
-            // Remove animation class after animation completes
-            setTimeout(() => {
-                glitchWrapper.classList.remove('animate');
-                currentIndex = (currentIndex + 1) % texts.length;
-            }, 3000);
+            document.querySelector(".typed-text").textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    index = 0;
+                    count++;
+                }, 2000);
+            }
+            setTimeout(type, 200);
         }
-
-        // Initial call
-        updateGlitchText();
-
-        // Update text periodically
-        setInterval(updateGlitchText, 4000);
 
         // Page loader
         window.addEventListener('load', () => {
