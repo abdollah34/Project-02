@@ -14,6 +14,10 @@
 </head>
 
 <body>
+    <div class="morphing-bg"></div>
+    <div class="page-loader">
+        <div class="loader"></div>
+    </div>
     <div id="particles-js"></div>
     <div class="background-svg">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="svg-blob">
@@ -52,6 +56,10 @@
                 </div>
                 <p class="subtitle">Crafting digital experiences that push the boundaries of web development. Transforming ideas into stunning, interactive realities.</p>
                 <a href="./contact us/index.html" class="cta-button">Let's Create Something Amazing</a>
+                <div class="typing-container">
+                    <span class="typed-text"></span>
+                    <span class="cursor"></span>
+                </div>
             </div>
         </section>
 
@@ -71,6 +79,41 @@
                         <div class="tech-item"><i class="fab fa-html5"></i> HTML5</div>
                         <div class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</div>
                         <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-graph reveal-on-scroll">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skill-bars">
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span class="skill-name">Frontend Development</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span class="skill-name">Backend Development</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,7 +145,7 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
+        <div class="fo</section>oter-content">
             <div class="footer-section">
                 <h3>Let's Connect</h3>
                 <div class="social-links">
@@ -303,6 +346,100 @@
                 menuButton.classList.remove('active');
             });
         });
+
+        // Typing effect
+        const texts = ["Web Developer", "UI Designer", "Problem Solver"];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.querySelector(".typed-text").textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    index = 0;
+                    count++;
+                }, 2000);
+            }
+            setTimeout(type, 200);
+        }
+
+        // Page loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.page-loader').classList.add('fade-out');
+            }, 1000);
+            type(); // Start typing effect after page load
+        });
+
+        // 3D card effect
+        document.querySelectorAll('.float-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const xRotation = ((y - rect.height / 2) / rect.height) * 20;
+                const yRotation = ((x - rect.width / 2) / rect.width) * 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateZ(20px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+
+        // Enhanced 3D effects
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.float-card');
+            const hero = document.querySelector('.hero-content');
+
+            // Calculate mouse position relative to center
+            const x = (e.clientX - window.innerWidth / 2) / 20;
+            const y = (e.clientY - window.innerHeight / 2) / 20;
+
+            // Apply parallax effect to hero
+            hero.style.transform = `translateZ(50px) rotateX(${-y}deg) rotateY(${x}deg)`;
+
+            // Apply effect to cards
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardX = e.clientX - rect.left - rect.width / 2;
+                const cardY = e.clientY - rect.top - rect.height / 2;
+
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${cardY / 10}deg)
+                    rotateY(${cardX / 10}deg)
+                    translateZ(20px)
+                `;
+            });
+        });
+
+        // Reset transforms when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            const cards = document.querySelectorAll('.float-card');
+            const hero = document.querySelector('.hero-content');
+
+            hero.style.transform = 'translateZ(50px)';
+            cards.forEach(card => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+
+        // Disable these effects on mobile
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            document.removeEventListener('mousemove');
+            document.removeEventListener('mouseleave');
+        }
     </script>
 </body>
 
