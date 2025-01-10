@@ -14,6 +14,11 @@
 </head>
 
 <body>
+    <div class="animated-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
     <div class="morphing-bg"></div>
     <div class="page-loader">
         <div class="loader"></div>
@@ -136,10 +141,16 @@
                 </div>
             </div>
         </section>
+        <div class="audio-wave">
+            <!-- Generate 20 wave bars -->
+            <div class="wave-bar" style="animation-delay: 0.1s"></div>
+            <div class="wave-bar" style="animation-delay: 0.2s"></div>
+            <!-- ... add 18 more with increasing delays ... -->
+        </div>
     </main>
 
     <footer class="footer">
-        <div class="fo</section>oter-content">
+        <div class="footer-content">
             <div class="footer-section">
                 <h3>Let's Connect</h3>
                 <div class="social-links">
@@ -434,6 +445,47 @@
             document.removeEventListener('mousemove');
             document.removeEventListener('mouseleave');
         }
+
+        // Create orbs
+        const createOrb = () => {
+            const orb = document.createElement('div');
+            orb.className = 'orb';
+            document.body.appendChild(orb);
+            return orb;
+        };
+
+        const orbs = [createOrb(), createOrb(), createOrb()];
+
+        // Move orbs with mouse
+        document.addEventListener('mousemove', (e) => {
+            orbs.forEach((orb, index) => {
+                setTimeout(() => {
+                    orb.style.left = e.pageX - 50 + 'px';
+                    orb.style.top = e.pageY - 50 + 'px';
+                }, index * 100);
+            });
+        });
+
+        // Tilt effect on scroll
+        const sections = document.querySelectorAll('.tilt-section');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            sections.forEach(section => {
+                const speed = section.dataset.speed || 0.3;
+                const yPos = -(scrolled * speed);
+                const rotation = scrolled * 0.03;
+                section.style.transform = `perspective(1000px) translateY(${yPos}px) rotateX(${rotation}deg)`;
+            });
+        });
+
+        // Random wave animation
+        const waveBars = document.querySelectorAll('.wave-bar');
+        setInterval(() => {
+            waveBars.forEach(bar => {
+                const height = Math.random() * 60 + 20;
+                bar.style.height = `${height}px`;
+            });
+        }, 100);
     </script>
 </body>
 
