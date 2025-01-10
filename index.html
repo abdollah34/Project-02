@@ -610,29 +610,52 @@
             });
         }, 100);
 
-        // Notification handling
+        // Updated notification handling
+        const showNotification = (notification) => {
+            // Remove any existing shown notifications
+            document.querySelectorAll('.notification').forEach(n => {
+                n.classList.remove('show');
+            });
+
+            // Show the new notification
+            notification.classList.add('show');
+
+            // Set a timeout to hide it
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        };
+
+        // Sympa Tours notification
         const notification = document.getElementById('notification');
         const sympaToursLink = document.getElementById('sympaToursLink');
 
         sympaToursLink.addEventListener('click', (e) => {
             e.preventDefault();
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
+            showNotification(notification);
         });
 
-        // Dashboard notification handling
+        // Dashboard notification
         const dashboardNotification = document.getElementById('dashboardNotification');
         const dashboardLink = document.getElementById('dashboardLink');
 
         dashboardLink.addEventListener('click', (e) => {
             e.preventDefault();
-            dashboardNotification.classList.add('show');
-            setTimeout(() => {
-                dashboardNotification.classList.remove('show');
-            }, 3000);
+            showNotification(dashboardNotification);
         });
+
+        // Add touch event handlers for mobile
+        if ('ontouchstart' in window) {
+            sympaToursLink.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                showNotification(notification);
+            });
+
+            dashboardLink.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                showNotification(dashboardNotification);
+            });
+        }
     </script>
 </body>
 

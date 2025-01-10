@@ -2081,3 +2081,78 @@ main {
 
 
 /* ...existing code... */
+
+
+/* Updated Notification styles */
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background: rgba(17, 34, 64, 0.95);
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 100000;
+    /* Increased z-index */
+    transform: translateX(150%);
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    /* Prevent interaction issues */
+}
+
+#dashboardNotification {
+    top: 80px;
+}
+
+.notification.show {
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+
+/* Updated mobile styles */
+
+@media (max-width: 768px) {
+    .notification {
+        position: fixed;
+        /* Reinforce fixed positioning */
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(150%);
+        text-align: center;
+        width: auto;
+        /* Allow notification to size properly */
+        max-width: calc(100% - 40px);
+        /* Prevent overflow */
+        margin: 0;
+        /* Reset margins */
+    }
+    #dashboardNotification {
+        bottom: 80px;
+    }
+    .notification.show {
+        transform: translateY(0);
+    }
+}
+
+
+/* Add specific styles for iOS Safari */
+
+@supports (-webkit-touch-callout: none) {
+    .notification {
+        bottom: max(20px, env(safe-area-inset-bottom));
+    }
+    #dashboardNotification {
+        bottom: max(80px, env(safe-area-inset-bottom) + 60px);
+    }
+}
+
+
+/* ...existing code... */
