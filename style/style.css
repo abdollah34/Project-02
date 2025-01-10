@@ -2141,10 +2141,12 @@ main {
 
 @supports (-webkit-touch-callout: none) {
     .notification {
-        bottom: max(20px, env(safe-area-inset-bottom));
+        bottom: 20px;
+        bottom: var(--safe-area-inset-bottom, 20px);
     }
     #dashboardNotification {
-        bottom: max(80px, env(safe-area-inset-bottom) + 60px);
+        bottom: 80px;
+        bottom: var(--safe-area-inset-bottom, 80px);
     }
 }
 
