@@ -1521,9 +1521,8 @@ body {
 }
 
 
-}
-
 /* ...existing code... */
+
 .agency-name {
     font-size: 5rem;
     font-weight: bold;
@@ -1534,136 +1533,152 @@ body {
     -webkit-text-fill-color: transparent;
     font-family: 'Poppins', sans-serif;
     animation: float 6s ease-in-out infinite;
-    .agency-name span {
-        font-weight: 300;
-        opacity: 0.8;
+}
+
+.agency-name span {
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .agency-name {
+        font-size: 3rem;
+        margin-bottom: 15px;
     }
-    
-    @media (max-width: 768px) {
-        .agency-name {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
+}
+
+@media (max-width: 480px) {
+    .agency-name {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
     }
-    
-    @media (max-width: 480px) {
-        .agency-name {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+}
+
+
+/* ...rest of existing code... */
+
+
+/* Animated Background Shapes */
+
+.animated-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(100, 255, 218, 0.1), rgba(72, 185, 255, 0.1));
+    backdrop-filter: blur(5px);
+    animation: floatShape 20s infinite linear;
+}
+
+.shape:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    top: 60%;
+    left: 80%;
+    animation-delay: -5s;
+}
+
+.shape:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 80%;
+    left: 20%;
+    animation-delay: -10s;
+}
+
+@keyframes floatShape {
+    0% {
+        transform: rotate(0deg) translate(50px) rotate(0deg);
     }
-    /* ...rest of existing code... */
-    /* Animated Background Shapes */
-    
-    .animated-shapes {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        pointer-events: none;
+    100% {
+        transform: rotate(360deg) translate(50px) rotate(-360deg);
     }
-    
-    .shape {
-        position: absolute;
-        border-radius: 50%;
-        background: linear-gradient(45deg, rgba(100, 255, 218, 0.1), rgba(72, 185, 255, 0.1));
-        backdrop-filter: blur(5px);
-        animation: floatShape 20s infinite linear;
+}
+
+
+/* Audio Wave Effect */
+
+.audio-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    z-index: 1;
+}
+
+.wave-bar {
+    width: 3px;
+    background: linear-gradient(to top, #64ffda, transparent);
+    animation: waveAnimation 1s infinite ease-in-out;
+}
+
+@keyframes waveAnimation {
+    0%,
+    100% {
+        height: 20px;
     }
-    
-    .shape:nth-child(1) {
-        width: 200px;
-        height: 200px;
-        top: 10%;
-        left: 10%;
-        animation-delay: 0s;
+    50% {
+        height: 80px;
     }
-    
-    .shape:nth-child(2) {
-        width: 300px;
-        height: 300px;
-        top: 60%;
-        left: 80%;
-        animation-delay: -5s;
-    }
-    
-    .shape:nth-child(3) {
-        width: 150px;
-        height: 150px;
-        top: 80%;
-        left: 20%;
-        animation-delay: -10s;
-    }
-    
-    @keyframes floatShape {
-        0% {
-            transform: rotate(0deg) translate(50px) rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg) translate(50px) rotate(-360deg);
-        }
-    }
-    /* Audio Wave Effect */
-    
-    .audio-wave {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        gap: 5px;
-        z-index: 1;
-    }
-    
-    .wave-bar {
-        width: 3px;
-        background: linear-gradient(to top, #64ffda, transparent);
-        animation: waveAnimation 1s infinite ease-in-out;
-    }
-    
-    @keyframes waveAnimation {
-        0%,
-        100% {
-            height: 20px;
-        }
-        50% {
-            height: 80px;
-        }
-    }
-    /* Glowing Orbs */
-    
+}
+
+
+/* Glowing Orbs */
+
+.orb {
+    position: fixed;
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+    mix-blend-mode: screen;
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+
+/* Tilt Effect */
+
+.tilt-section {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.5s ease;
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .animated-shapes,
+    .audio-wave,
     .orb {
-        position: fixed;
-        pointer-events: none;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
-        mix-blend-mode: screen;
-        transition: all 0.2s ease;
-        z-index: 2;
+        display: none;
     }
-    /* Tilt Effect */
-    
-    .tilt-section {
-        transform-style: preserve-3d;
-        transform: perspective(1000px);
-        transition: transform 0.5s ease;
-    }
-    /* Responsive adjustments */
-    
-    @media (max-width: 768px) {
-        .animated-shapes,
-        .audio-wave,
-        .orb {
-            display: none;
-        }
-    }
+}
+
+
 }
 
 /* ...existing code... */
