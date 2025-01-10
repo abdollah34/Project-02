@@ -158,10 +158,12 @@
                                 <img src="./path/to/icon.png" alt="Project Preview">
                             </div>
                             <div class="project-back">
-                                <h3>FixelForge Agency</h3>
+                                <h3>PixelForge Agency</h3>
                                 <p>one of my Website that i created for my agency</p>
                                 <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                                    <a href="#" class="project-link" id="pixelforgeLink">
+                                        <i class="fas fa-external-link-alt"></i> Live
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -325,6 +327,13 @@
 
     <div class="notification" id="dashboardNotification">
         <i class="fas fa-lock"></i> Sorry, this website is for store managers only.
+    </div>
+
+    <div class="scroll-animation" id="rocketAnimation">
+        <div class="rocket-container">
+            <div class="rocket">🚀</div>
+            <div class="rocket-trail"></div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -656,6 +665,28 @@
                 showNotification(dashboardNotification);
             });
         }
+
+        // Add this to handle the PixelForge link click
+        document.getElementById('pixelforgeLink').addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Show rocket animation
+            const animation = document.getElementById('rocketAnimation');
+            animation.classList.add('active');
+
+            // After animation completes, scroll to top and hide animation
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+
+                // Hide animation after scroll
+                setTimeout(() => {
+                    animation.classList.remove('active');
+                }, 1000);
+            }, 1000);
+        });
     </script>
 </body>
 
