@@ -142,9 +142,12 @@
                                 <img src="./path/to/dashbord.png" alt="Project Preview">
                             </div>
                             <div class="project-back">
-                                <h3>dashbord</h3>
-                                <p>Dashbord for Fashion haven store to manage eveything in the store.</p>
+                                <h3>Dashboard</h3>
+                                <p>Dashboard for Fashion haven store to manage everything in the store.</p>
                                 <div class="project-links">
+                                    <a href="#" class="project-link" id="dashboardLink">
+                                        <i class="fas fa-external-link-alt"></i> Live
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +175,9 @@
                                 <h3>Sympa Tours</h3>
                                 <p>one of my Website that i created for my agency</p>
                                 <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                                    <a href="#" class="project-link" id="sympaToursLink">
+                                        <i class="fas fa-external-link-alt"></i> Live
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -312,6 +317,14 @@
             <i class="fas fa-arrow-up"></i>
             <span class="tooltip">Back to Top</span>
         </a>
+    </div>
+
+    <div class="notification" id="notification">
+        <i class="fas fa-info-circle"></i> This website is not published by the owner yet.
+    </div>
+
+    <div class="notification" id="dashboardNotification">
+        <i class="fas fa-lock"></i> Sorry, this website is for store managers only.
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -596,6 +609,30 @@
                 bar.style.height = `${height}px`;
             });
         }, 100);
+
+        // Notification handling
+        const notification = document.getElementById('notification');
+        const sympaToursLink = document.getElementById('sympaToursLink');
+
+        sympaToursLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        });
+
+        // Dashboard notification handling
+        const dashboardNotification = document.getElementById('dashboardNotification');
+        const dashboardLink = document.getElementById('dashboardLink');
+
+        dashboardLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            dashboardNotification.classList.add('show');
+            setTimeout(() => {
+                dashboardNotification.classList.remove('show');
+            }, 3000);
+        });
     </script>
 </body>
 

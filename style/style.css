@@ -1944,3 +1944,94 @@ main {
 }
 
 /* ...existing code... */
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background: rgba(17, 34, 64, 0.95);
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 9999;
+    transform: translateX(150%);
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.notification.show {
+    transform: translateX(0);
+}
+.notification i {
+    color: #64ffda;
+    margin-right: 8px;
+}
+@media (max-width: 768px) {
+    .notification {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        text-align: center;
+        transform: translateY(150%);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+}
+
+/* ...existing code... */
+
+/* Modify notification styles to handle multiple notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background: rgba(17, 34, 64, 0.95);
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 9999;
+    transform: translateX(150%);
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+#dashboardNotification {
+    top: 80px;
+    /* Position below the first notification */
+}
+.notification i {
+    color: #64ffda;
+    margin-right: 8px;
+}
+.notification.show {
+    transform: translateX(0);
+}
+@media (max-width: 768px) {
+    .notification {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        text-align: center;
+        transform: translateY(150%);
+    }
+    
+    #dashboardNotification {
+        bottom: 80px;
+        /* Position above the first notification on mobile */
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+}
+
+/* ...existing code... */
