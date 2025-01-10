@@ -53,9 +53,12 @@
         <section class="hero">
             <div class="hero-content reveal-on-scroll">
                 <div class="agency-name">PixelForge <span>Agency</span></div>
-                <div class="typing-container">
-                    <span class="typed-text"></span>
-                    <span class="cursor"></span>
+                <div class="glitch-wrapper">
+                    <div class="glitch">
+                        <span aria-hidden="true" class="glitch-text"></span>
+                        <span class="glitch-text main"></span>
+                        <span aria-hidden="true" class="glitch-text"></span>
+                    </div>
                 </div>
                 <p class="subtitle">Crafting digital experiences that push the boundaries of web development. Transforming ideas into stunning, interactive realities.</p>
                 <a href="./contact us/index.html" class="cta-button">Let's Create Something Amazing</a>
@@ -352,29 +355,32 @@
             });
         });
 
-        // Typing effect
+        // Glitch text effect
         const texts = ["Web Developer", "UI Designer", "Problem Solver"];
-        let count = 0;
-        let index = 0;
-        let currentText = "";
-        let letter = "";
+        let currentIndex = 0;
 
-        function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
+        function updateGlitchText() {
+            const glitchSpans = document.querySelectorAll('.glitch-text');
+            glitchSpans.forEach(span => {
+                span.textContent = texts[currentIndex];
+            });
 
-            document.querySelector(".typed-text").textContent = letter;
-            if (letter.length === currentText.length) {
-                setTimeout(() => {
-                    index = 0;
-                    count++;
-                }, 2000);
-            }
-            setTimeout(type, 200);
+            // Add glitch animation classes
+            const glitchWrapper = document.querySelector('.glitch');
+            glitchWrapper.classList.add('animate');
+
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                glitchWrapper.classList.remove('animate');
+                currentIndex = (currentIndex + 1) % texts.length;
+            }, 3000);
         }
+
+        // Initial call
+        updateGlitchText();
+
+        // Update text periodically
+        setInterval(updateGlitchText, 4000);
 
         // Page loader
         window.addEventListener('load', () => {
