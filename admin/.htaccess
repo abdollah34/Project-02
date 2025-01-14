@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Prevent direct access to .php files in api directory
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteCond %{REQUEST_URI} ^/admin/api/ [NC]
+RewriteRule ^ - [F]
+
+# Allow API endpoints
+RewriteRule ^api/get_messages$ api/get_messages.php [L,QSA]
+RewriteRule ^api/test$ api/test_api.php [L,QSA]
+
+# Prevent directory listing
+Options -Indexes

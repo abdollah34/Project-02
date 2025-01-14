@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/dashbord.css">
+    <link rel="stylesheet" href="css/messages.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <i class="ri-code-box-line"></i>
+            <span>Portfolio Admin</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashbord.html" data-title="Dashboard"><i class="ri-dashboard-line"></i> <span>Dashboard</span></a></li>
+                <li><a href="projects.html" data-title="Projects"><i class="ri-folder-line"></i> <span>Projects</span></a></li>
+                <li class="active"><a href="messages.html" data-title="Messages"><i class="ri-message-2-line"></i> <span>Messages</span></a></li>
+                <li><a href="blog.html" data-title="Blog Posts"><i class="ri-article-line"></i> <span>Blog Posts</span></a></li>
+                <li><a href="analytics.html" data-title="Analytics"><i class="ri-bar-chart-line"></i> <span>Analytics</span></a></li>
+                <li><a href="settings.html" data-title="Settings"><i class="ri-settings-line"></i> <span>Settings</span></a></li>
+                <li class="logout"><a href="index.html" data-title="Logout"><i class="ri-logout-box-line"></i> <span>Logout</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <header>
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ri-menu-line"></i>
+                </button>
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search messages...">
+                </div>
+            </div>
+            <div class="message-filters">
+                <select id="statusFilter">
+                    <option value="all">All Messages</option>
+                    <option value="0">Unread</option>
+                    <option value="1">Read</option>
+                </select>
+                <select id="contactFilter">
+                    <option value="all">All Contact Methods</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="whatsapp">WhatsApp</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="messages-container">
+            <div class="messages-list" id="messagesList">
+                <!-- Messages will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Message View Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="message-header">
+                <h2>Message Details</h2>
+                <span class="message-date"></span>
+            </div>
+            <div class="message-body">
+                <!-- Message details will be loaded here -->
+            </div>
+            <div class="message-actions">
+                <button class="reply-btn"><i class="ri-mail-send-line"></i> Reply</button>
+                <button class="mark-btn"><i class="ri-check-double-line"></i> Mark as Read</button>
+                <button class="delete-btn"><i class="ri-delete-bin-line"></i> Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            // Load saved state from localStorage
+            const isSidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+            if (isSidebarCollapsed) {
+                sidebar.classList.add('collapsed');
+            }
+
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+                // Save state to localStorage
+                localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+            });
+        });
+    </script>
+    <script src="js/messages.js"></script>
+</body>
+
+</html>

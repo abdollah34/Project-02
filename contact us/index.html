@@ -37,6 +37,7 @@
                 <a href="./../about us/index.html"><span>About</span></a>
                 <a href="./../services/services.html"><span>Services</span></a>
                 <a href="./../portfolio/index.html"><span>Work</span></a>
+                <a href="./../request_project/index.html"><span>Project Consultation</span></a>
                 <a href="#" class="active"><span>Contact</span></a>
             </div>
         </div>
@@ -80,6 +81,30 @@
                     </div>
                 </div>
 
+                <div class="availability-badge">
+                    <span class="status-dot"></span>
+                    <div class="status-info">
+                        <h4>Current Status: <span id="availability-status">Available</span></h4>
+                        <p>Working Hours: 9:00 AM - 6:00 PM (GMT+1)</p>
+                        <p>Average Response Time: ~2 hours</p>
+                    </div>
+                </div>
+
+                <div class="quick-contact">
+                    <a href="mailto:abdollahbagueri02@gmail.com" class="quick-btn email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Send Email</span>
+                    </a>
+                    <a href="https://wa.me/21267495006" class="quick-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://calendly.com/yourusername" class="quick-btn calendar">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>Schedule Meeting</span>
+                    </a>
+                </div>
+
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/abdellah-bagueri-ab8035225/" target="_blank" class="social-btn">
                         <i class="fab fa-linkedin"></i>
@@ -97,29 +122,48 @@
             </div>
 
             <div class="contact-form">
-                <form id="contactForm">
+                <form id="contactForm" method="POST">
                     <div class="form-group">
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required>
                         <label for="name">Your Name</label>
                         <div class="line"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                         <label for="email">Your Email</label>
                         <div class="line"></div>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" id="subject" required>
+                        <input type="text" id="subject" name="subject" required>
                         <label for="subject">Subject</label>
                         <div class="line"></div>
                     </div>
 
                     <div class="form-group">
-                        <textarea id="message" required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                         <label for="message">Your Message</label>
                         <div class="line"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" pattern="[0-9+\-\s]+" required>
+                            <label for="phone">Phone Number</label>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="form-group select-wrapper">
+                            <select id="contactPreference" name="contactPreference" required>
+                                <option value="" disabled selected>Choose preferred method</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                <option value="whatsapp">WhatsApp</option>
+                            </select>
+                            <label for="contactPreference">Preferred Contact Method</label>
+                            <div class="line"></div>
+                        </div>
                     </div>
 
                     <button type="submit" class="submit-btn">
@@ -127,6 +171,9 @@
                         <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                     </button>
                 </form>
+
+                <!-- Add notification container -->
+                <div class="notification-container" id="notificationContainer"></div>
             </div>
         </div>
     </main>
@@ -192,7 +239,7 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-    <script src="index.js"></script>
+    <script src="script.js"></script>
     <script>
         particlesJS('particles-js', {
             "particles": {

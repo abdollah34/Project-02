@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Management</title>
+    <link rel="stylesheet" href="css/dashbord.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <!-- Same sidebar structure as dashboard -->
+        <div class="logo">
+            <i class="ri-code-box-line"></i>
+            <span>Portfolio Admin</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashbord.html" data-title="Dashboard"><i class="ri-dashboard-line"></i> <span>Dashboard</span></a></li>
+                <li class="active"><a href="projects.html" data-title="Projects"><i class="ri-folder-line"></i> <span>Projects</span></a></li>
+                <li><a href="messages.html" data-title="Messages"><i class="ri-message-2-line"></i> <span>Messages</span></a></li>
+                <li><a href="blog.html" data-title="Blog Posts"><i class="ri-article-line"></i> <span>Blog Posts</span></a></li>
+                <li><a href="analytics.html" data-title="Analytics"><i class="ri-bar-chart-line"></i> <span>Analytics</span></a></li>
+                <li><a href="settings.html" data-title="Settings"><i class="ri-settings-line"></i> <span>Settings</span></a></li>
+                <li class="logout"><a href="index.html" data-title="Logout"><i class="ri-logout-box-line"></i> <span>Logout</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <header>
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ri-menu-line"></i>
+                </button>
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search projects...">
+                </div>
+            </div>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin" alt="profile">
+                <span>Admin User</span>
+            </div>
+        </header>
+
+        <div class="projects-container">
+            <div class="projects-header">
+                <h2>Project Requests</h2>
+                <div class="filters">
+                    <select id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Project Details</h2>
+            <div class="modal-body">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/projects.js"></script>
+</body>
+
+</html>

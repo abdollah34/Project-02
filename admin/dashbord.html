@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/dashbord.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <i class="ri-code-box-line"></i>
+            <span>Portfolio Admin</span>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="dashbord.html" data-title="Dashboard"><i class="ri-dashboard-line"></i> <span>Dashboard</span></a></li>
+                <li><a href="projects.html" data-title="Projects"><i class="ri-folder-line"></i> <span>Projects</span></a></li>
+                <li><a href="messages.html" data-title="Messages"><i class="ri-message-2-line"></i> <span>Messages</span></a></li>
+                <li><a href="blog.html" data-title="Blog Posts"><i class="ri-article-line"></i> <span>Blog Posts</span></a></li>
+                <li><a href="analytics.html" data-title="Analytics"><i class="ri-bar-chart-line"></i> <span>Analytics</span></a></li>
+                <li><a href="settings.html" data-title="Settings"><i class="ri-settings-line"></i> <span>Settings</span></a></li>
+                <li class="logout"><a href="index.html" data-title="Logout"><i class="ri-logout-box-line"></i> <span>Logout</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <header>
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ri-menu-line"></i>
+                </button>
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin" alt="profile">
+                <span>Admin User</span>
+            </div>
+        </header>
+
+        <div class="cards">
+            <div class="card">
+                <i class="ri-eye-line"></i>
+                <div class="content">
+                    <span>Page Views</span>
+                    <h3>2,543</h3>
+                </div>
+            </div>
+            <div class="card">
+                <i class="ri-message-3-line"></i>
+                <div class="content">
+                    <span>New Messages</span>
+                    <h3>28</h3>
+                </div>
+            </div>
+            <div class="card">
+                <i class="ri-folder-5-line"></i>
+                <div class="content">
+                    <span>Projects</span>
+                    <h3>15</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts">
+            <div class="chart">
+                <h2>Visitor Analytics</h2>
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Project Interactions</h2>
+                <canvas id="userChart"></canvas>
+            </div>
+        </div>
+
+        <div class="recent">
+            <h2>Recent Messages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1234</td>
+                        <td>John Smith</td>
+                        <td>Project Inquiry</td>
+                        <td>2023-10-15</td>
+                        <td><span class="status pending">Unread</span></td>
+                    </tr>
+                    <tr>
+                        <td>#1235</td>
+                        <td>Sarah Johnson</td>
+                        <td>Collaboration Request</td>
+                        <td>2023-10-14</td>
+                        <td><span class="status completed">Replied</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="js/dashbord.js"></script>
+</body>
+
+</html>

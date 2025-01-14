@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Consultation - PixelForge Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="background-svg">
+        <!-- ...existing SVG code... -->
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <a href="../index.html" class="logo">PixelForge <span>Agency</span></a>
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="../about us/index.html"><span>About</span></a>
+                <a href="../services/services.html"><span>Services</span></a>
+                <a href="../portfolio"><span>Work</span></a>
+                <a href="./index.html" class="active"><span>Project Consultation</span></a>
+                <a href="../contact us/index.html"><span>Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="request-container">
+        <h1 class="section-title">Project Consultation Form</h1>
+        <form class="request-form" id="projectRequestForm">
+            <div class="form-section">
+                <h2>Personal Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="phone-input-group">
+                            <select id="countryCode" name="countryCode" required>
+                                <option value="+93">Afghanistan (+93)</option>
+                                <option value="+355">Albania (+355)</option>
+                                <option value="+213">Algeria (+213)</option>
+                                <option value="+376">Andorra (+376)</option>
+                                <option value="+244">Angola (+244)</option>
+                                <option value="+54">Argentina (+54)</option>
+                                <option value="+61">Australia (+61)</option>
+                                <option value="+43">Austria (+43)</option>
+                                <option value="+994">Azerbaijan (+994)</option>
+                                <option value="+973">Bahrain (+973)</option>
+                                <option value="+880">Bangladesh (+880)</option>
+                                <option value="+32">Belgium (+32)</option>
+                                <option value="+55">Brazil (+55)</option>
+                                <option value="+359">Bulgaria (+359)</option>
+                                <option value="+1">Canada (+1)</option>
+                                <option value="+86">China (+86)</option>
+                                <option value="+57">Colombia (+57)</option>
+                                <option value="+45">Denmark (+45)</option>
+                                <option value="+20">Egypt (+20)</option>
+                                <option value="+358">Finland (+358)</option>
+                                <option value="+33">France (+33)</option>
+                                <option value="+49">Germany (+49)</option>
+                                <option value="+30">Greece (+30)</option>
+                                <option value="+852">Hong Kong (+852)</option>
+                                <option value="+36">Hungary (+36)</option>
+                                <option value="+354">Iceland (+354)</option>
+                                <option value="+91">India (+91)</option>
+                                <option value="+62">Indonesia (+62)</option>
+                                <option value="+98">Iran (+98)</option>
+                                <option value="+964">Iraq (+964)</option>
+                                <option value="+353">Ireland (+353)</option>
+                                <option value="+972">Israel (+972)</option>
+                                <option value="+39">Italy (+39)</option>
+                                <option value="+81">Japan (+81)</option>
+                                <option value="+962">Jordan (+962)</option>
+                                <option value="+254">Kenya (+254)</option>
+                                <option value="+965">Kuwait (+965)</option>
+                                <option value="+961">Lebanon (+961)</option>
+                                <option value="+218">Libya (+218)</option>
+                                <option value="+60">Malaysia (+60)</option>
+                                <option value="+356">Malta (+356)</option>
+                                <option value="+52">Mexico (+52)</option>
+                                <option value="+212" selected>Morocco (+212)</option>
+                                <option value="+31">Netherlands (+31)</option>
+                                <option value="+64">New Zealand (+64)</option>
+                                <option value="+234">Nigeria (+234)</option>
+                                <option value="+47">Norway (+47)</option>
+                                <option value="+968">Oman (+968)</option>
+                                <option value="+92">Pakistan (+92)</option>
+                                <option value="+970">Palestine (+970)</option>
+                                <option value="+51">Peru (+51)</option>
+                                <option value="+63">Philippines (+63)</option>
+                                <option value="+48">Poland (+48)</option>
+                                <option value="+351">Portugal (+351)</option>
+                                <option value="+974">Qatar (+974)</option>
+                                <option value="+40">Romania (+40)</option>
+                                <option value="+7">Russia (+7)</option>
+                                <option value="+966">Saudi Arabia (+966)</option>
+                                <option value="+65">Singapore (+65)</option>
+                                <option value="+27">South Africa (+27)</option>
+                                <option value="+82">South Korea (+82)</option>
+                                <option value="+34">Spain (+34)</option>
+                                <option value="+94">Sri Lanka (+94)</option>
+                                <option value="+46">Sweden (+46)</option>
+                                <option value="+41">Switzerland (+41)</option>
+                                <option value="+886">Taiwan (+886)</option>
+                                <option value="+66">Thailand (+66)</option>
+                                <option value="+216">Tunisia (+216)</option>
+                                <option value="+90">Turkey (+90)</option>
+                                <option value="+971">UAE (+971)</option>
+                                <option value="+44">UK (+44)</option>
+                                <option value="+380">Ukraine (+380)</option>
+                                <option value="+1">USA (+1)</option>
+                                <option value="+967">Yemen (+967)</option>
+                            </select>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name (Optional)</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Project Details</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="projectTitle">Project Title</label>
+                        <input type="text" id="projectTitle" name="projectTitle" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="projectType">Project Type</label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Select a type</option>
+                            <option value="website">Personal/Business Website</option>
+                            <option value="ecommerce">E-Commerce Website</option>
+                            <option value="portfolio">Portfolio Website</option>
+                            <option value="blog">Blog Website</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="description">Project Description</label>
+                        <textarea id="description" name="description" rows="5" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Technical Requirements</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Required Technologies</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item html-css">
+                                <input type="checkbox" name="tech[]" value="html">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML/CSS</span>
+                            </label>
+                            <label class="checkbox-item javascript">
+                                <input type="checkbox" name="tech[]" value="javascript">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </label>
+                            <label class="checkbox-item react">
+                                <input type="checkbox" name="tech[]" value="react">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </label>
+                            <label class="checkbox-item php">
+                                <input type="checkbox" name="tech[]" value="php">
+                                <i class="fab fa-php"></i>
+                                <span>PHP</span>
+                            </label>
+                            <label class="checkbox-item mysql">
+                                <input type="checkbox" name="tech[]" value="mysql">
+                                <i class="fas fa-database"></i>
+                                <span>MySQL</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Timeline & Budget</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="timeline">Expected Timeline</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline</option>
+                            <option value="3-5d">3-5 days (Express)</option>
+                            <option value="1w">1 week (Standard)</option>
+                            <option value="2w">2 weeks (Complex)</option>
+                            <option value="3w">3 weeks (Advanced)</option>
+                            <option value="4w">4 weeks (Enterprise)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency" required>
+                            <option value="">Select currency</option>
+                            <option value="MAD">MAD (Moroccan Dirham)</option>
+                            <option value="USD">USD (US Dollar)</option>
+                            <option value="EUR">EUR (Euro)</option>
+                            <option value="GBP">GBP (British Pound)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget</option>
+                            <option value="basic" data-mad="3500-8000" data-usd="350-800" data-eur="320-730" data-gbp="275-625">Basic Package</option>
+                            <option value="standard" data-mad="8000-15000" data-usd="800-1500" data-eur="730-1370" data-gbp="625-1170">Standard Package</option>
+                            <option value="premium" data-mad="15000+" data-usd="1500+" data-eur="1370+" data-gbp="1170+">Premium Package</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="reset-btn">Reset Form</button>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Let's Connect</h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/abdellah-bagueri-ab8035225/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/abdollah34" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/BagueriAbdellah" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/invites/contact/?igsh=zpwrgg44ibhy&utm_content=x078sqx" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../about us/index.html">About</a></li>
+                    <li><a href="../services/services.html">Services</a></li>
+                    <li><a href="../portfolio/index.html">Portfolio</a></li>
+                    <li><a href="../contact us/index.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> abdollahbagueri02@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +21267495006</p>
+                <p><i class="fas fa-map-marker-alt"></i> Errachidia, Tinejdad, Morocco</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PixelForge Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="request.js"></script>
+</body>
+
+</html>
+
+
+</html>
